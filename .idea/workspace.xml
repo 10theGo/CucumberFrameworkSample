@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c98c191-9f59-4dba-9bfe-d46407871f64" name="Default Changelist" comment="Init files added">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/pages/BasePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/pages/DashboardPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/pages/LoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/runners/CukesRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/runners/FailedTestRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/step_definitions/Hooks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/step_definitions/LoginStepDefs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/utilities/BrowserUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/utilities/ConfigurationReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/utilities/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration.properties" beforeDir="false" afterPath="$PROJECT_DIR$/configuration.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/finworkserp/pages/BasePage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/finworkserp/runners/CukesRunner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/finworkserp/step_definitions/Hooks.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/finworkserp/utilities/Driver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/FinWorks/runners/CukesRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/runners/CukesRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/FinWorks/step_definitions/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/step_definitions/Hooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/FinWorks/step_definitions/LoginStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/FinWorks/step_definitions/LoginStepDefs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/login.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +44,7 @@
       <recent name="$PROJECT_DIR$/src/test/java/com/FinWorks/pages" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Login as a sales manager">
+  <component name="RunManager" selected="JUnit.CukesRunner">
     <configuration name="Scenario: Login as a sales manager" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/login.feature" />
@@ -95,8 +82,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: Login as a sales manager" />
         <item itemvalue="JUnit.CukesRunner" />
+        <item itemvalue="Cucumber Java.Scenario: Login as a sales manager" />
       </list>
     </recent_temporary>
   </component>

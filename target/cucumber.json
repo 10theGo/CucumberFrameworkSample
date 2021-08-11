@@ -1,0 +1,82 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-08-11T15:26:29.894Z",
+        "before": [
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.FinWorks.step_definitions.Hooks.setUp()"
+            }
+          }
+        ],
+        "line": 6,
+        "name": "Login as a sales manager",
+        "description": "",
+        "id": "users-should-be-able-to-login;login-as-a-sales-manager",
+        "after": [
+          {
+            "result": {
+              "duration": 354000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.FinWorks.step_definitions.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 36046000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the user is on the login page",
+            "match": {
+              "location": "com.FinWorks.step_definitions.LoginStepDefs.the_user_is_on_the_login_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4419000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "the user enters the driver information",
+            "match": {
+              "location": "com.FinWorks.step_definitions.LoginStepDefs.the_user_enters_the_driver_information()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 5028000000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "the user should be able to Login",
+            "match": {
+              "location": "com.FinWorks.step_definitions.LoginStepDefs.the_user_should_be_able_to_Login()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Users should be able to login",
+    "description": "",
+    "id": "users-should-be-able-to-login",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/login.feature",
+    "tags": []
+  }
+]

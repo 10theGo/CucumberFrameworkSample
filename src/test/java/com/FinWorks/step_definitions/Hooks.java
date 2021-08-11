@@ -1,5 +1,6 @@
 package com.FinWorks.step_definitions;
 
+import com.FinWorks.utilities.BrowserUtils;
 import com.FinWorks.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -7,12 +8,16 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import java.util.concurrent.TimeUnit;
+
 public class Hooks {
 
 
     @Before
     public void setUp(){
-        System.out.println("\t this is coming from BEFORE");
+        Driver.get().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        Driver.get().manage().window().maximize();
+
     }
 
     @After

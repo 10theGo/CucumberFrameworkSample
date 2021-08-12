@@ -10,6 +10,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class LoginStepDefs {
+
     @Given("the user is on the login page")
     public void the_user_is_on_the_login_page() {
         String url = ConfigurationReader.get("url");
@@ -33,5 +34,31 @@ public class LoginStepDefs {
         Assert.assertEquals("#Inbox - Odoo", actualTitle);
     }
 
-}
+    @When("user enters valid {string} and {string}")
+    public void userEntersValidAnd(String validUsername, String validPassword) {
+        new LoginPage().login(validUsername,validPassword);
 
+    }
+
+    @Then("user enters to {string} page")
+    public void userEntersToPage(String expectedTitle) {
+        String actualTitle = new LoginPage().getPageSubtitleText(expectedTitle).getText();
+        Assert.assertEquals(expectedTitle,actualTitle);
+    }
+//
+//    @When("user enters invalid username {string} or password {string}")
+//    public void userEntersInvalidUsernameOrPassword(String arg0, String arg1) {
+//    }
+//
+//    @Then("user sees a {string} error message")
+//    public void userSeesAErrorMessage(String arg0) {
+//    }
+//
+//    @When("any login input box is empty {string} {string}")
+//    public void anyLoginInputBoxIsEmpty(String arg0, String arg1) {
+//    }
+//
+//    @Then("user sees a login error message")
+//    public void userSeesALoginErrorMessage() {
+//    }
+}

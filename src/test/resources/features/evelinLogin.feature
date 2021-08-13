@@ -5,7 +5,7 @@ Feature: Login as an authorized user
     Given the user is on the login page
 
 
-@wip
+
   @loginWithValidCredentials
   Scenario Outline: : User login with valid credentials
     When user enters valid "<validUsername>" and "<validPassword>"
@@ -21,24 +21,25 @@ Feature: Login as an authorized user
       |expensesmanager110@info.com |expensesmanager |
       |imm10@info.com              |inventorymanager|
       |imm160@info.com             |inventorymanager|
-      |manuf_user10@info.com       |manufuser       |
+      |manuf_user10@info.com       |       |
       |manuf_user110@info.com      |manufuser       |
-
+  @wip
   @invalidUsernameOrPassword
-  Scenario: User login with invalid
-    When user enters invalid username "<invalidUsername>" or password "<invalidPassword>"
+  Scenario Outline: User login with invalid
+    When user enters invalid username "<username>" or password "<password>"
     Then user sees "Wrong login/password" error message
 
     Examples:
 
-      |invalidUsername            |invalidPassword |
+      |username                   |password |
       |salesmanager1@info.com     |salesmanager    |
       |salesmanager5@info.com     |alesman         |
-      |pos_manager10@info.com     |posmanag        |
-      |posmanager10@info.com      |posmanager      |
-      |expensesmanager10@info.com |expensesmanager |
-      |expensesmanager10@inf.com  |expensesmanager |
-      |inn10@info.com             |inventory_anager|
+      |pos_manager10@info.com     |posmanager        |
+      |posmanager10@info.com      |posman8ager     |
+      |expensesmanager@info.com   |expensesmanager |
+      |expensesmanager10@inf.com  |exit            |
+      |inn10@info.com             |inventory.anager|
+      |Great sentence             |blablabla      |
       |manu_user_10@info.com      |manufuser       |
       |manu_user10@info.com       |manuf/user      |
 #

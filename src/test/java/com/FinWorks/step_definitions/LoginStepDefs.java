@@ -47,12 +47,20 @@ public class LoginStepDefs {
     }
 
     @When("user enters invalid username {string} or password {string}")
-    public void userEntersInvalidUsernameOrPassword(String invalidUsername, String invalidPassword) {
-        new LoginPage().login(invalidUsername,invalidPassword);
-            }
+    public void userEntersInvalidUsernameOrPassword(String username, String password) {
+        if(password.equals("salesmanager") || password.equals("posmanager") || password.equals("expensesmanager")
+            || password.equals("inventorymanager") || password.equals("manufuser")){
+        System.out.println("Incorrect username: " + username);
+    } else{
+        System.out.println("Incorrect password: " + password);
+    }
+        new LoginPage().login(username,password);
+    }
 
     @Then("user sees {string} error message")
     public void userSeesAErrorMessage(String expectedErrorMsg) {
+        String actualErrorMsg = new LoginPage().loginErrorMsg.getText();
+        Assert.assertEquals(expectedErrorMsg,actualErrorMsg);
 
 
     }

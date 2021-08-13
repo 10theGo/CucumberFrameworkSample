@@ -8,8 +8,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+
+import java.util.SplittableRandom;
 
 public class LoginStepDefs {
+
     @Given("the user is on the login page")
     public void the_user_is_on_the_login_page() {
         String url = ConfigurationReader.get("url");
@@ -33,5 +37,6 @@ public class LoginStepDefs {
         Assert.assertEquals("#Inbox - Odoo", actualTitle);
     }
 
-}
 
+
+}

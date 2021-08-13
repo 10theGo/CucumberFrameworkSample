@@ -26,14 +26,6 @@ import org.openqa.selenium.support.PageFactory;
         @FindBy(xpath = "//*[@id='wrapwrap']/main/div/form/div[3]/button")
         public WebElement submit;
 
-        @FindBy (xpath = "//li[text()='#Inbox']")
-        public WebElement inboxPageSubtitle;
-
-        @FindBy (xpath = "//p[@class]")
-        public WebElement loginErrorMsg;
-
-        @FindBy (css = "[required ='required']")
-        public WebElement usernameAndPasswordInputBoxes;
 
         public void login(String userNameStr, String passwordStr) {
             userName.sendKeys(userNameStr);
@@ -41,10 +33,7 @@ import org.openqa.selenium.support.PageFactory;
             submit.click();
             // verification that we logged
         }
-        public WebElement getPageSubtitleText(String subtitleName){
-            WebElement element = Driver.get().findElement(By.xpath("//li[text()='" + subtitleName + "']"));
-            return element;
-        }
+
 
 
     }

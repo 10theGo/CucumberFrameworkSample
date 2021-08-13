@@ -64,12 +64,21 @@ public class LoginStepDefs {
 
 
     }
-//
-//    @When("any login input box is empty {string} {string}")
-//    public void anyLoginInputBoxIsEmpty(String arg0, String arg1) {
-//    }
-//
-//    @Then("user sees a login error message")
-//    public void userSeesALoginErrorMessage() {
-//    }
+
+    @When("any login input box is empty {string} {string}")
+    public void anyLoginInputBoxIsEmpty(String username, String password) {
+        new LoginPage().login(username,password);
+        if(username.equals("")){
+            System.out.println("username input box is emtpy");
+        }else if(password.equals("")) {
+            System.out.println("password input box is emtpy");
+        }else{
+            System.out.println("username and password are empty");
+        }
+    }
+
+    @Then("user sees a login error message")
+    public void userSeesALoginErrorMessage() {
+
+    }
 }

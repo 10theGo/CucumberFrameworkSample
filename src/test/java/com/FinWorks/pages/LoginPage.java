@@ -32,6 +32,9 @@ import org.openqa.selenium.support.PageFactory;
         @FindBy (xpath = "//p[@class]")
         public WebElement loginErrorMsg;
 
+        @FindBy (css = "[required ='required']")
+        public WebElement usernameAndPasswordInputBoxes;
+
         public void login(String userNameStr, String passwordStr) {
             userName.sendKeys(userNameStr);
             password.sendKeys(passwordStr);

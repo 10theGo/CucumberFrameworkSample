@@ -42,9 +42,16 @@ Feature: Login as an authorized user
       |Great sentence             |blablabla      |
       |manu_user_10@info.com      |manufuser       |
       |manu_user10@info.com       |manuf/user      |
-#
-#  @emptyLoginInputBox
-#  Scenario: User leaves any login input box blanked
-#    When any login input box is empty "" ""
-#    Then user sees a login error message
-#
+
+  @emptyLoginInputBox
+  Scenario Outline: User leaves any login input box blanked
+    When any login input box is empty "<emptyUsernameBox>" "<emptyPasswordBox>"
+    Then user sees a login error message
+
+    Examples:
+    |emptyUsernameBox|emptyPasswordBox|
+    |    ""          |posmanager      |
+    |imm10@info.com  |  ""            |
+    |    ""          |  ""            |
+
+

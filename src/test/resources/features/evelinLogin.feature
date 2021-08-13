@@ -23,11 +23,11 @@ Feature: Login as an authorized user
       |imm160@info.com             |inventorymanager|
       |manuf_user10@info.com       |       |
       |manuf_user110@info.com      |manufuser       |
-  @wip
+
   @invalidUsernameOrPassword
   Scenario Outline: User login with invalid
     When user enters invalid username "<username>" or password "<password>"
-    Then user sees "Wrong login/password" error message
+    Then user sees "Completa este campo" error message
 
     Examples:
 
@@ -42,16 +42,16 @@ Feature: Login as an authorized user
       |Great sentence             |blablabla      |
       |manu_user_10@info.com      |manufuser       |
       |manu_user10@info.com       |manuf/user      |
-
+  @wip
   @emptyLoginInputBox
   Scenario Outline: User leaves any login input box blanked
     When any login input box is empty "<emptyUsernameBox>" "<emptyPasswordBox>"
-    Then user sees a login error message
+    Then user sees "Completa este campo" error message in "<emptyUsernameBox>" "<emptyPasswordBox>"
 
     Examples:
     |emptyUsernameBox|emptyPasswordBox|
-    |    ""          |posmanager      |
-    |imm10@info.com  |  ""            |
-    |    ""          |  ""            |
+    |                |posmanager      |
+    |imm10@info.com  |                |
+    |                |                |
 
 

@@ -8,6 +8,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+
+import java.util.SplittableRandom;
 
 public class LoginStepDefs {
 
@@ -75,10 +78,21 @@ public class LoginStepDefs {
         }else{
             System.out.println("username and password are empty");
         }
-    }
-
-    @Then("user sees a login error message")
-    public void userSeesALoginErrorMessage() {
 
     }
+
+    @Then("user sees {string} error message in {string} {string}")
+    public void userSeesErrorMessageIn(String expectedErrorMsg, String username, String password) {String actualUsernameErrorMsg = Driver.get().findElement(By.cssSelector("#login")).getAttribute("validationMessage");
+        String actualPasswordErrorMsg = Driver.get().findElement(By.cssSelector("#password")).getAttribute("validationMessage");
+
+        if(username.equals("")){
+            Assert.assertEquals(expectedErrorMsg,actualUsernameErrorMsg);
+        }else if(password.equals("")) {
+            Assert.assertEquals(expectedErrorMsg,actualPasswordErrorMsg);
+        }else{
+            Assert.assertEquals(expectedErrorMsg,actualUsernameErrorMsg);
+        }
+    }
+
+
 }

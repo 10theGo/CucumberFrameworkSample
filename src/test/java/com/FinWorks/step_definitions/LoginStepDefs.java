@@ -45,14 +45,17 @@ public class LoginStepDefs {
         String actualTitle = new LoginPage().getPageSubtitleText(expectedTitle).getText();
         Assert.assertEquals(expectedTitle,actualTitle);
     }
-//
-//    @When("user enters invalid username {string} or password {string}")
-//    public void userEntersInvalidUsernameOrPassword(String arg0, String arg1) {
-//    }
-//
-//    @Then("user sees a {string} error message")
-//    public void userSeesAErrorMessage(String arg0) {
-//    }
+
+    @When("user enters invalid username {string} or password {string}")
+    public void userEntersInvalidUsernameOrPassword(String invalidUsername, String invalidPassword) {
+        new LoginPage().login(invalidUsername,invalidPassword);
+            }
+
+    @Then("user sees {string} error message")
+    public void userSeesAErrorMessage(String expectedErrorMsg) {
+
+
+    }
 //
 //    @When("any login input box is empty {string} {string}")
 //    public void anyLoginInputBoxIsEmpty(String arg0, String arg1) {

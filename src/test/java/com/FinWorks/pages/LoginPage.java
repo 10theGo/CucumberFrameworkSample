@@ -29,6 +29,9 @@ import org.openqa.selenium.support.PageFactory;
         @FindBy (xpath = "//li[text()='#Inbox']")
         public WebElement inboxPageSubtitle;
 
+        @FindBy (xpath = "//p[@class]")
+        public WebElement loginErrorMsg;
+
         public void login(String userNameStr, String passwordStr) {
             userName.sendKeys(userNameStr);
             password.sendKeys(passwordStr);

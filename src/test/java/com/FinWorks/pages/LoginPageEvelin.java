@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class EvelinLoginPage extends BasePage{
+public class LoginPageEvelin extends BasePage{
 
     @FindBy(xpath = "//li[text()='#Inbox']")
     public WebElement inboxPageSubtitle;

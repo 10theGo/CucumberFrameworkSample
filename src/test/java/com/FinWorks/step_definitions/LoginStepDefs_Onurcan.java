@@ -1,11 +1,9 @@
 package com.FinWorks.step_definitions;
 
-import com.FinWorks.pages.LoginPageBagty;
 import com.FinWorks.pages.LoginPage_Onurcan;
 import com.FinWorks.utilities.BrowserUtils;
 import com.FinWorks.utilities.ConfigurationReader;
 import com.FinWorks.utilities.Driver;
-import com.sun.xml.internal.ws.policy.AssertionSet;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

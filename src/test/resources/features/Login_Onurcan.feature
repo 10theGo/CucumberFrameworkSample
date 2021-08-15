@@ -1,4 +1,3 @@
-@login
 Feature: Login
 
   Background:
@@ -34,10 +33,9 @@ Feature: Login
       | expensesmanager10@info.com   | Expensesmanager   |
       | manuf_user10@info.com        | danufuser         |
 
-
   Scenario Outline: The user should not be able to log in with empty input
     When the user enters empty "<username>" or "<password>"
-    Then the user should not be able to login and see "Please fill out this field." message
+    Then the user should not be able to login and see "Please fill out this field" message
 
     Examples:
       | username                | password   |

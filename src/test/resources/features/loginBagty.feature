@@ -1,9 +1,9 @@
-@login @smoke
+@login
 
 Feature: log in
 
   Background:
-    Given the user is on the login page
+    Given the user is on the Login page
 
 
   Scenario Outline: all types of users can log in with valid credentials
@@ -43,3 +43,8 @@ Feature: log in
       | Inventory Manager      |                               | inventorymanager    |
       | Expenses Manager       |                               | expensesmanager     |
       | Manufacturing User     |                               | manufuser           |
+      | Sales Manager          |                               |                     |
+      | Point of Sales Manager |                               |                     |
+      | Inventory Manager      |                               |                     |
+      | Expenses Manager       |                               |                     |
+      | Manufacturing User     |                               |                     |

@@ -1,4 +1,4 @@
-@logout
+@logout @smoke
 Feature: log out
 
   Scenario Outline: <userType> users can logout

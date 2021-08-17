@@ -13,4 +13,14 @@ public class LoginPageBurhan extends BasePage {
 
     @FindBy(xpath = "//button[.='Log in']")
     public WebElement loginButton;
+
+    @FindBy(css =".alert.alert-danger")
+    public WebElement wrongCredentialsMessage;
+
+    public void loginWith(String username, String password) {
+        this.email.sendKeys(username);
+        this.password.sendKeys(password);
+        loginButton.click();
+    }
+
 }

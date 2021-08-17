@@ -11,17 +11,49 @@ public class LoginPage_Onurcan extends BasePage {
         PageFactory.initElements(Driver.get(), this);
     }
 
+    public WebElement getLoginBox() {
+        return loginBox;
+    }
+
+    public void setLoginBox(WebElement loginBox) {
+        this.loginBox = loginBox;
+    }
+
     @FindBy(css = "#login")
-    public WebElement loginBox;
+    private WebElement loginBox;
 
     @FindBy(css = "#password")
-    public WebElement passwordBox;
+    private WebElement passwordBox;
 
     @FindBy(xpath = "//*[@type='submit']")
-    public WebElement submit;
+    private WebElement submit;
+
+    public WebElement getPasswordBox() {
+        return passwordBox;
+    }
+
+    public void setPasswordBox(WebElement passwordBox) {
+        this.passwordBox = passwordBox;
+    }
+
+    public WebElement getSubmit() {
+        return submit;
+    }
+
+    public void setSubmit(WebElement submit) {
+        this.submit = submit;
+    }
+
+    public WebElement getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(WebElement errorMessage) {
+        this.errorMessage = errorMessage;
+    }
 
     @FindBy(xpath = "//p[@class='alert alert-danger']")
-    public WebElement errorMessage;
+    private WebElement errorMessage;
 
 
 

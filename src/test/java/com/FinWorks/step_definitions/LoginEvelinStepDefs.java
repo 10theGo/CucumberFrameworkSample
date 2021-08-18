@@ -3,13 +3,18 @@ package com.FinWorks.step_definitions;
 import com.FinWorks.pages.LoginPageEvelin;
 import com.FinWorks.pages.LoginPage;
 import com.FinWorks.utilities.Driver;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
 public class LoginEvelinStepDefs {
+    @Given("the user is on the login page")
+    public void theUserIsOnTheLoginPage() {
 
+        System.out.println(Driver.get().getTitle());
+    }
     @When("user enters valid {string} and {string}")
     public void userEntersValidAnd(String validUsername, String validPassword) {
         new LoginPage().login(validUsername,validPassword);
@@ -18,7 +23,7 @@ public class LoginEvelinStepDefs {
 
     @Then("user enters to {string} page")
     public void userEntersToPage(String expectedTitle) {
-        String actualTitle = new LoginPageEvelin().getPageSubtitleText(expectedTitle).getText();
+        String actualTitle = new LoginPageEvelin().dynamicSubtitleWebElement(expectedTitle).getText();
         Assert.assertEquals(expectedTitle,actualTitle);
     }
 
@@ -66,6 +71,7 @@ public class LoginEvelinStepDefs {
             Assert.assertEquals(expectedErrorMsg,actualUsernameErrorMsg);
         }
     }
+
 
 
 }

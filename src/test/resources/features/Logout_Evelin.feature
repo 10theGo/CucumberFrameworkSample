@@ -2,7 +2,7 @@
 Feature: Logout from aplication
 
 
-    @wip
+@wip
   Scenario: user display user dropdawn  menu
     Given the user is on the Login page
     And enter valid credentials "salesmanager15@info.com" and "salesmanager"

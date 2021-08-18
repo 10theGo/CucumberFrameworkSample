@@ -12,10 +12,17 @@ public class LogoutPage_Evelin extends DashboardPage {
     private WebElement logoutNameButton;
 
     @FindBy (xpath = "(//ul)[4]/li")
-    private WebElement nameAvatarDropdawnMEnu;
+    private WebElement nameAvatarDropdawnMenuOptions;
+
+    @FindBy (xpath = "(//ul[@class='dropdown-menu'])[2]")
+    private WebElement dropdawnMenu;
+
+    public WebElement getDropdawnMenu() {
+        return dropdawnMenu;
+    }
 
     public WebElement getWebelementNameAvatarDropdawnMenu() {
-        return nameAvatarDropdawnMEnu;
+        return nameAvatarDropdawnMenuOptions;
     }
 
     public WebElement getLogoutNameButton() {

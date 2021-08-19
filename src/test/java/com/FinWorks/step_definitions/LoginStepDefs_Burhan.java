@@ -1,7 +1,7 @@
 package com.FinWorks.step_definitions;
 
 import com.FinWorks.pages.DiscussPageBurhan;
-import com.FinWorks.pages.LoginPageBurhan;
+import com.FinWorks.pages.LoginPage_Burhan;
 import com.FinWorks.utilities.BrowserUtils;
 import com.FinWorks.utilities.ConfigurationReader;
 import com.FinWorks.utilities.Driver;
@@ -13,7 +13,7 @@ import org.junit.Assert;
 
 public class LoginStepDefs_Burhan {
 
-    LoginPageBurhan loginPageBurhan = new LoginPageBurhan();
+    LoginPage_Burhan loginPageBurhan = new LoginPage_Burhan();
     String username;
     String password;
 

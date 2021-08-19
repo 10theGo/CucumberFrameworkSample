@@ -3,7 +3,7 @@ package com.FinWorks.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPageBurhan extends BasePage {
+public class LoginPage_Burhan extends BasePage {
 
     @FindBy(id = "login")
     public WebElement email;

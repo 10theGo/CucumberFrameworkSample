@@ -1,7 +1,7 @@
 
 Feature: Logout from aplication
 
-
+@login
 @wip
   Scenario: user display user dropdawn  menu
     Given the user is on the Login page

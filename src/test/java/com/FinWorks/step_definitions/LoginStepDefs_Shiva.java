@@ -12,16 +12,16 @@ import org.junit.Assert;
 public class LoginStepDefs_Shiva {
 
 
-    @Given("the user is on the login page")
-    public void the_user_is_on_the_login_page() {
+    @Given("the User is on the login page")
+    public void the_User_is_on_the_login_page() {
         String url = ConfigurationReader.get("url");
         //WebDriver driver = Driver.get();
         Driver.get().get(url);
     }
 
 
-    @When("the user enters the valid information {string} {string}")
-    public void the_user_enters_the_valid_information(String username, String password) {
+    @When("the User enters the valid information {string} {string}")
+    public void the_User_enters_the_valid_information(String username, String password) {
         new LoginPage_Shiva().login(username, password);
 
     }
@@ -40,8 +40,8 @@ public class LoginStepDefs_Shiva {
     }
 
 
-    @Then("the user should be able to Login")
-    public void the_user_should_be_able_to_Login() {
+    @Then("the User should be able to Login")
+    public void the_User_should_be_able_to_Login() {
         BrowserUtils.waitFor(5);
         String actualTitle = Driver.get().getTitle();
         Assert.assertEquals("#Inbox - Odoo", actualTitle);

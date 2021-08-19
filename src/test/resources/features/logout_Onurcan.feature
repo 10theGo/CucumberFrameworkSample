@@ -1,9 +1,10 @@
 Feature: Log out
 
-
+  @logout_onurcan
   Scenario Outline: <userType> should be log out
     Given the user should be logged in with valid "<username>" and "<password>"
-    When the User clicks logout button
+    When the User clicks topBar menu
+    And the User clicks Logout button
     Then the User should be logged out
 
     Examples:

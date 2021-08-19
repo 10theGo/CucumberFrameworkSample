@@ -5,6 +5,7 @@ import com.FinWorks.pages.LoginPage_Onurcan;
 import com.FinWorks.utilities.BrowserUtils;
 import com.FinWorks.utilities.ConfigurationReader;
 import com.FinWorks.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,12 +22,18 @@ InboxPage_Onurcan inboxPage_onurcan= new InboxPage_Onurcan();
         
     }
 
-    @When("the User clicks logout button")
+    @When("the User clicks topBar menu")
     public void the_clicks_logout_button() {
         BrowserUtils.waitForPageToLoad(5);
         inboxPage_onurcan.getTopbarButton().click();
-        inboxPage_onurcan.getLogoutButton().click();
+
       
+    }
+
+    @And("the User clicks Logout button")
+    public void theUserClicksLogoutButton() {
+        BrowserUtils.waitFor(5);
+        inboxPage_onurcan.getLogoutButton().click();
     }
 
     @Then("the User should be logged out")
@@ -37,5 +44,6 @@ InboxPage_Onurcan inboxPage_onurcan= new InboxPage_Onurcan();
         Assert.assertEquals("Login | Best solution for startups",Driver.get().getTitle());
     }
 
-   
+
+
 }

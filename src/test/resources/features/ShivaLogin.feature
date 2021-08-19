@@ -2,12 +2,12 @@
 Feature:login functionality
 
   Background:
-       Given the user is on the login page
+       Given the User is on the login page
 
 @validAccount
   Scenario Outline: Login with different valid accounts
-    When  the user enters the valid information "<username>" "<password>"
-    Then the user should be able to Login
+    When  the User enters the valid information "<username>" "<password>"
+    Then the User should be able to Login
     Examples:
       | username                   | password         |
       | salesmanager15@info.com    | salesmanager     |

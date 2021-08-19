@@ -4,7 +4,7 @@ Feature: Login
     Given the user should be on the login page
 
   Scenario Outline: The user should be logged in with valid credentials
-    When the user enter valid "<username>" and "<password>"
+    When  the user enter valid "<username>" and "<password>"
     Then the user should be able to log in
 
     Examples:

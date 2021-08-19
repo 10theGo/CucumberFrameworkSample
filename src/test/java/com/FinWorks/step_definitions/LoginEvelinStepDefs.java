@@ -23,7 +23,7 @@ public class LoginEvelinStepDefs {
 
     @Then("user enters to {string} page")
     public void userEntersToPage(String expectedTitle) {
-        String actualTitle = new LoginPageEvelin().dynamicSubtitleWebElement(expectedTitle).getText();
+        String actualTitle = new LoginPageEvelin().dynamicSubtitleWebElemento(expectedTitle).getText();
         Assert.assertEquals(expectedTitle,actualTitle);
     }
 

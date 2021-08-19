@@ -17,7 +17,7 @@ public class LoginPageEvelin extends BasePage{
     public WebElement usernameAndPasswordInputBoxes;
 
 
-    public WebElement dynamicSubtitleWebElement(String subtitleName){
+    public WebElement dynamicSubtitleWebElemento(String subtitleName){
         WebElement element = Driver.get().findElement(By.xpath("//li[text()='" + subtitleName + "']"));
         return element;
     }

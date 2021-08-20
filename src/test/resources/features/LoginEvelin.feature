@@ -2,6 +2,7 @@ Feature: Login as an authorized user
     Background:
       Given the user is on the login page
 
+  @wip
     @loginWithValidCredentials
   Scenario Outline: : User login with valid credentials
 

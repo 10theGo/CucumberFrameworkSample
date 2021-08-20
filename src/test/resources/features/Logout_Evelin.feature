@@ -1,20 +1,15 @@
 
-Feature: Logout from aplication
+Feature: Logout from application
+
 
 @login
-@wip
-  Scenario: user display user dropdawn  menu
-    Given the user is on the Login page
+  Scenario: user logout from application through avatar button
+    Given the user is on the login page
     And enter valid credentials "salesmanager15@info.com" and "salesmanager"
-    When user enters to "#Inbox" page
-      And click on "dropdawn" button
-#    And clicks "<typeButton>" button
+    And user enters to "#Inbox" page
+    And click on "dropdawn" button
     Then a drop down many is displayed
     And user clicks on "logout" button
     Then users navigate to "Login | Best solution for startups" page
 
-#    Examples:
-#    |typeButton|
-#    |avatar    |
-#    |name      |
 

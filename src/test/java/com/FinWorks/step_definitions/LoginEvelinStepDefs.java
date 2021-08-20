@@ -2,6 +2,7 @@ package com.FinWorks.step_definitions;
 
 import com.FinWorks.pages.LoginPageEvelin;
 import com.FinWorks.pages.LoginPage;
+import com.FinWorks.utilities.ConfigurationReader;
 import com.FinWorks.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,12 +13,12 @@ import org.openqa.selenium.By;
 public class LoginEvelinStepDefs {
     @Given("the user is on the login page")
     public void theUserIsOnTheLoginPage() {
-
+        Driver.get().get(ConfigurationReader.get("url"));
         System.out.println(Driver.get().getTitle());
     }
     @When("user enters valid {string} and {string}")
     public void userEntersValidAnd(String validUsername, String validPassword) {
-        new LoginPage().login(validUsername,validPassword);
+        new LoginPageEvelin().login(validUsername,validPassword);
 
     }
 
@@ -35,7 +36,7 @@ public class LoginEvelinStepDefs {
         } else{
             System.out.println("Incorrect password: " + password);
         }
-        new LoginPage().login(username,password);
+        new LoginPageEvelin().login(username,password);
     }
 
     @Then("user sees {string} error message")
@@ -48,7 +49,7 @@ public class LoginEvelinStepDefs {
 
     @When("any login input box is empty {string} {string}")
     public void anyLoginInputBoxIsEmpty(String username, String password) {
-        new LoginPage().login(username,password);
+        new LoginPageEvelin().login(username,password);
         if(username.equals("")){
             System.out.println("username input box is emtpy");
         }else if(password.equals("")) {

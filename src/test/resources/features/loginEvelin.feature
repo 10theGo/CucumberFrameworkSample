@@ -1,11 +1,10 @@
 Feature: Login as an authorized user
-
-
-  Background:
-    Given the user is on the login page
+    Background:
+      Given the user is on the login page
 
     @loginWithValidCredentials
   Scenario Outline: : User login with valid credentials
+
     When user enters valid "<validUsername>" and "<validPassword>"
     Then user enters to "#Inbox" page
 

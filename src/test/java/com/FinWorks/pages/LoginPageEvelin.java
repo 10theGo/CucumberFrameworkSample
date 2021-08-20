@@ -16,6 +16,22 @@ public class LoginPageEvelin extends BasePage{
     @FindBy (css = "[required ='required']")
     public WebElement usernameAndPasswordInputBoxes;
 
+    @FindBy(css="#login")
+    public WebElement userName;
+
+
+    @FindBy(css="#password")
+    public WebElement password;
+
+    @FindBy(xpath = "//*[@id='wrapwrap']/main/div/form/div[3]/button")
+    public WebElement submit;
+
+
+    public void login(String userNameStr, String passwordStr) {
+        userName.sendKeys(userNameStr);
+        password.sendKeys(passwordStr);
+        submit.click();
+    }
 
     public WebElement dynamicSubtitleWebElement(String subtitleName){
         WebElement element = Driver.get().findElement(By.xpath("//li[text()='" + subtitleName + "']"));

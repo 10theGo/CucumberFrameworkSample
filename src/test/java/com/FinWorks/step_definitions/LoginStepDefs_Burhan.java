@@ -22,7 +22,7 @@ public class LoginStepDefs_Burhan {
         Driver.get().get(ConfigurationReader.get("url"));
     }
 
-    @When("The user logs in as {string}")
+    @When("The User logs in as {string}")
     public void the_user_logs_in_as(String userType) throws Exception {
 
         switch (userType) {

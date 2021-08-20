@@ -10,7 +10,7 @@ import org.junit.Assert;
 
 
 public class LoginBagtyStepDefs {
-    @Given("the user is on the Login page")
+    @Given("the User is on the Login page")
     public void the_user_is_on_the_login_page() {
 
         String url= ConfigurationReader.get("url");

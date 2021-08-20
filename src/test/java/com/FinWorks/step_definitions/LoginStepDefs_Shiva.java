@@ -26,13 +26,13 @@ public class LoginStepDefs_Shiva {
 
     }
 
-    @When("the User enters the invalid information {string} or {string}")
+    @When("the user enters the invalid information {string} or {string}")
     public void theUserEntersTheInvalidInformationOr(String username, String password) {
         new LoginPage_Shiva().login(username, password);
 
     }
 
-    @Then("the User should not be able to Login")
+    @Then("the user should not be able to Login")
     public void theUserShouldNotBeAbleToLogin() {
         BrowserUtils.waitFor(4);
         String actualTitle = Driver.get().getTitle();

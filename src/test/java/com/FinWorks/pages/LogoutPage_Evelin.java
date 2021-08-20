@@ -3,21 +3,20 @@ package com.FinWorks.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LogoutPage_Evelin extends DashboardPage {
-
-    @FindBy (xpath = "//*[@class='img-circle oe_topbar_avatar']")
+public class LogoutPage_Evelin extends  DashboardPage {
+    @FindBy(xpath = "//*[@class='img-circle oe_topbar_avatar']")
     private WebElement logoutAvatarButton;
 
-    @FindBy (xpath =  "//*[@class='oe_topbar_name']")
+    @FindBy(xpath = "//*[@class='oe_topbar_name']")
     private WebElement logoutNameButton;
 
-    @FindBy (xpath = "(//ul)[4]/li")
+    @FindBy(xpath = "(//ul)[4]/li")
     private WebElement nameAvatarDropdawnMenuOptions;
 
-    @FindBy (xpath = "(//a[@aria-expanded='false'])[1]")
+    @FindBy(xpath = "(//a[@aria-expanded='false'])[1]")
     private WebElement dropdawnMenu;
 
-    @FindBy (css = "[data-menu='logout']")
+    @FindBy(css = "[data-menu='logout']")
     private WebElement logoutButton;
 
     public WebElement getLogoutButton() {
@@ -36,7 +35,7 @@ public class LogoutPage_Evelin extends DashboardPage {
         return logoutNameButton;
     }
 
-    public WebElement getLogoutAvatarButton(){
+    public WebElement getLogoutAvatarButton() {
         return logoutAvatarButton;
     }
 }

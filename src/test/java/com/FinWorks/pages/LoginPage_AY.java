@@ -27,18 +27,7 @@ public class LoginPage_AY extends BasePage{
     @FindBy(xpath = "//p[contains(text(),'Wrong login/password')]")
     private WebElement failedLoginMessage;
 
-    public void login(String username, String password) {
-        emailInputBox.sendKeys(username);
-        passwordInputBox.sendKeys(password);
-        submitButton.click();
 
-    }
-
-    public String failedLoginMessage() {
-
-        return failedLoginMessage.getText();
-
-    }
 
 
 

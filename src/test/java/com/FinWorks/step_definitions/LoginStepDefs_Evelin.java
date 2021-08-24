@@ -2,6 +2,7 @@ package com.FinWorks.step_definitions;
 
 import com.FinWorks.pages.LoginPageEvelin;
 import com.FinWorks.pages.LoginPage;
+import com.FinWorks.utilities.BrowserUtils;
 import com.FinWorks.utilities.ConfigurationReader;
 import com.FinWorks.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -24,7 +25,9 @@ public class LoginStepDefs_Evelin {
 
     @Then("user enters to {string} page")
     public void userEntersToPage(String expectedTitle) {
-        String actualTitle = new LoginPageEvelin().dynamicSubtitleWebElement(expectedTitle).getText();
+        BrowserUtils.waitFor(5);
+        System.out.println(Driver.get().getTitle());
+        String actualTitle = Driver.get().getTitle();
         Assert.assertEquals(expectedTitle,actualTitle);
     }
 

@@ -1,6 +1,6 @@
 package com.FinWorks.step_definitions;
 
-import com.FinWorks.pages.DiscussPageBurhan;
+import com.FinWorks.pages.DiscussPage_Burhan;
 import com.FinWorks.pages.LoginPage_Burhan;
 import com.FinWorks.utilities.BrowserUtils;
 import com.FinWorks.utilities.ConfigurationReader;
@@ -51,12 +51,12 @@ public class LoginStepDefs_Burhan {
         }
 
         loginPageBurhan.loginWith(username, password);
+        BrowserUtils.waitForVisibility(new DiscussPage_Burhan().inboxTab, 5);
     }
 
 
     @Then("The user should be on the Inbox page")
     public void the_user_should_be_on_the_Inbox_page() {
-        BrowserUtils.waitForVisibility(new DiscussPageBurhan().inboxTab, 5);
         Assert.assertTrue("Verify that \tActual page title: " + Driver.get().getTitle() + " contains Inbox", Driver.get().getTitle().contains("Inbox"));
     }
 

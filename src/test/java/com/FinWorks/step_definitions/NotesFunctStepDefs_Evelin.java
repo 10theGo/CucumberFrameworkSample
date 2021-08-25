@@ -4,12 +4,15 @@ import com.FinWorks.pages.LoginPageEvelin;
 import com.FinWorks.pages.NotesFunctPage_Evelin;
 import com.FinWorks.utilities.BrowserUtils;
 import com.FinWorks.utilities.Driver;
+import io.cucumber.java.an.E;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 
 public class NotesFunctStepDefs_Evelin {
@@ -85,12 +88,27 @@ public class NotesFunctStepDefs_Evelin {
     @When("user_Evelin write some text")
     public void user_evelinWriteSomeText() {
         new NotesFunctPage_Evelin().editedText();
-        BrowserUtils.waitFor(2);
     }
 
     @Then("{string} is displayed on screen")
     public void textIsDisplayedOnScreen(String expectedText) {
         String actualText = new NotesFunctPage_Evelin().getTextEdited().getText();
+        Assert.assertEquals(expectedText,actualText);
+    }
+
+    @When("user_Evelin clicks on Style button")
+    public void user_evelinClicksOnStyleButton() {
+        new NotesFunctPage_Evelin().getStyleBtb().click();
+    }
+
+    @And("user_Evelin can select a typing style available")
+    public void user_evelinCanSelectATypingStyleAvailable() {
+       new NotesFunctPage_Evelin().getTypingStyle();
+    }
+
+    @Then("user_Evelin can change typing style text")
+    public void user_evelinCanChangeTypingStyleText(List<String> expectedText) {
+        List<String> actualText = new NotesFunctPage_Evelin().getTypingStyleText();
         Assert.assertEquals(expectedText,actualText);
     }
 }

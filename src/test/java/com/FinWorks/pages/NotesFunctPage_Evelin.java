@@ -106,5 +106,35 @@ public class NotesFunctPage_Evelin {
         WebElement element = Driver.get().findElement(By.xpath("//p[text()='This is a text for checking editor text box']"));
         return element;
     }
+    @FindBy (xpath = "(//*[@class='btn btn-default btn-sm dropdown-toggle'])[1]")
+    private WebElement StyleBtb;
+
+    public WebElement getStyleBtb() {
+        WebElement element = Driver.get().findElement(By.xpath("(//*[@class='btn btn-default btn-sm dropdown-toggle'])[1]"));
+        return element;
+    }
+    @FindBy (css = "[data-event='formatBlock']")
+    private List<WebElement> typingStyle;
+
+    public void getTypingStyle() {
+        List<WebElement> style = Driver.get().findElements(By.cssSelector("[data-event='formatBlock']"));
+
+        for (WebElement element : style) {
+            element.click();
+            getStyleBtb().click();
+            BrowserUtils.waitFor(1);
+        }
+    }
+
+        public List<String> getTypingStyleText() {
+            List<WebElement> styleTextElements = Driver.get().findElements(By.cssSelector("[data-event='formatBlock']"));
+
+            List<String> styleText = new ArrayList<>();
+            for (WebElement elementText : styleTextElements) {
+               styleText.add(elementText.getText());
+               }
+            return styleText;
+    }
+
 }
 

@@ -20,10 +20,14 @@
         When user_Evelin clicks on Tags box
         And user_Evelin clicks on color option
         Then color tag is displayed in Tags box
-#        And user_Evelin clicks on color option
         When user_Evelin clicks on color displayed in tag box
         Then user_Evelin can select a color available
 
+      Scenario: User_evelin can edit text in panel editor
+        Given user_Evelin clicks on Create module
+        And user_Evelin clicks on panel editor module
+        When user_Evelin write some text
+        Then "This is a text for checking editor text box" is displayed on screen
 
 
 

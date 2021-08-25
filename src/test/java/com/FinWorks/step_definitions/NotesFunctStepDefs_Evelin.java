@@ -5,6 +5,7 @@ import com.FinWorks.pages.NotesFunctPage_Evelin;
 import com.FinWorks.utilities.BrowserUtils;
 import com.FinWorks.utilities.Driver;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -76,4 +77,20 @@ public class NotesFunctStepDefs_Evelin {
     }
 
 
+    @And("user_Evelin clicks on panel editor module")
+    public void user_evelinClicksOnPanelEditorModule() {
+        new NotesFunctPage_Evelin().getPanelEditor().click();
+    }
+
+    @When("user_Evelin write some text")
+    public void user_evelinWriteSomeText() {
+        new NotesFunctPage_Evelin().editedText();
+        BrowserUtils.waitFor(2);
+    }
+
+    @Then("{string} is displayed on screen")
+    public void textIsDisplayedOnScreen(String expectedText) {
+        String actualText = new NotesFunctPage_Evelin().getTextEdited().getText();
+        Assert.assertEquals(expectedText,actualText);
+    }
 }

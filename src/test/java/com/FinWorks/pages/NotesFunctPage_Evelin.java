@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.WeakHashMap;
 
@@ -84,6 +85,25 @@ public class NotesFunctPage_Evelin {
 
     public WebElement coloursSelected() {
         WebElement element = Driver.get().findElement(By.xpath("//div[@aria-expanded='true']"));
+        return element;
+    }
+
+    @FindBy (xpath = ".note-editable.panel-body")
+    private WebElement panelEditor;
+
+    public WebElement getPanelEditor() {
+        WebElement element = Driver.get().findElement(By.cssSelector(".note-editable.panel-body"));
+        return element;
+    }
+
+    public void editedText() {
+       getPanelEditor().sendKeys("This is a text for checking editor text box");
+    }
+    @FindBy (xpath = "//pre[@style]")
+    private WebElement textEdited;
+
+    public WebElement getTextEdited() {
+        WebElement element = Driver.get().findElement(By.xpath("//p[text()='This is a text for checking editor text box']"));
         return element;
     }
 }

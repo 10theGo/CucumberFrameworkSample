@@ -2,12 +2,12 @@
 Feature:login functionality
 
   Background:
-       Given the user is on the login page
+       Given the User is on the login page
 
 @validAccount
   Scenario Outline: Login with different valid accounts
-    When  the user enters the valid information "<username>" "<password>"
-    Then the user should be able to Login
+    When  the User enters the valid information "<username>" "<password>"
+    Then the User should be able to Login
     Examples:
       | username                   | password         |
       | salesmanager15@info.com    | salesmanager     |
@@ -18,8 +18,8 @@ Feature:login functionality
 
 @InvalidAccount
   Scenario Outline: user can not login with different invalid acoount
-    When the user enters the invalid information "<username>" or "<password>"
-    Then the user should not be able to Login
+    When the User enters the invalid information "<username>" or "<password>"
+    Then the User should not be able to Login
 
     Examples:
       | username                   | password         |
@@ -31,8 +31,8 @@ Feature:login functionality
 
 @BlanketBox
   Scenario Outline: user can not login with blanket box
-    When the user enters the invalid information "<username>" or "<password>"
-    Then the user should not be able to Login
+    When the User enters the invalid information "<username>" or "<password>"
+    Then the User should not be able to Login
     Examples:
 
       | username                   | password     |

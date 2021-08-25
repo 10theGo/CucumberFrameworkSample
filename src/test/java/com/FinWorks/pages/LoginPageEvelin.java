@@ -26,6 +26,8 @@ public class LoginPageEvelin extends BasePage{
     @FindBy(xpath = "//*[@id='wrapwrap']/main/div/form/div[3]/button")
     public WebElement submit;
 
+    @FindBy (xpath = "//*[@data-action-id='220']")
+    private WebElement notesBtn;
 
     public void login(String userNameStr, String passwordStr) {
         userName.sendKeys(userNameStr);
@@ -36,5 +38,9 @@ public class LoginPageEvelin extends BasePage{
     public WebElement dynamicSubtitleWebElement(String subtitleName){
         WebElement element = Driver.get().findElement(By.xpath("//li[text()='" + subtitleName + "']"));
         return element;
+    }
+
+    public WebElement getNotesBtn() {
+        return notesBtn;
     }
 }

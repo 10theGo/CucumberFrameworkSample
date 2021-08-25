@@ -34,6 +34,7 @@ public class NotesPage_AY extends BasePage{
         createButton.click();
 
         dashboardPage.waitUntilLoaderScreenDisappear();
+
     }
 
 

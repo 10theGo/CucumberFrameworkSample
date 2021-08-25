@@ -1,6 +1,7 @@
 package com.FinWorks.step_definitions;
 
 import com.FinWorks.pages.LoginPage_AY;
+import com.FinWorks.utilities.BrowserUtils;
 import com.FinWorks.utilities.ConfigurationReader;
 import com.FinWorks.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -29,9 +30,9 @@ public class Login_StepDefs_AY {
     @Then("the user should be able to login to the app")
     public void the_user_should_be_able_to_login_to_the_app() {
 
-        loginPage_ay.waitUntilLoaderScreenDisappear();
+        BrowserUtils.waitFor(5);
 
-        Assert.assertEquals("#Inbox - Odoo", Driver.get().getTitle(),"Verify the user logged in");
+        Assert.assertEquals("#Inbox - Odoo", Driver.get().getTitle());
 
     }
 

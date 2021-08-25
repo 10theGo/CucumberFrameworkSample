@@ -12,7 +12,7 @@ Feature: Login functionality
 
   Scenario: User_Evelin can select/create tag
     When user_Evelin clicks on Create module
-    Then user_Evelin navigates to Note "New - Odoo" page
+    Then user_Evelin navigates to Note "New" page
 
   Scenario: User_Evelin can change colour of tags
     Given user_Evelin clicks on Create module
@@ -46,6 +46,22 @@ Feature: Login functionality
       | Header 5 |
       | Header 6 |
       | Quote    |
+
+  Scenario: User_Evelin selects date/type of note
+    Given user_Evelin clicks on Create module
+    And user_Evelin clicks on panel editor module
+    When user_Evelin write some text
+    And "This is a text for checking editor text box" is displayed on screen
+    Then user_Evelin clicks on data-type tabs
+
+  Scenario: User_Evelin saves note
+    Given user_Evelin clicks on Create module
+    And user_Evelin clicks on panel editor module
+    When user_Evelin write some text
+    And "This is a text for checking editor text box" is displayed on screen
+    And user_Evelin clicks on Save button
+    Then user_Evelin can see the saved note display ont the page
+    And the first line wrote: "This is a text for checking editor text box" as Subtitle
 
 
 

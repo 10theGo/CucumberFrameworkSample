@@ -3,6 +3,7 @@ package com.FinWorks.pages;
 import com.FinWorks.utilities.BrowserUtils;
 import com.FinWorks.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -136,5 +137,40 @@ public class NotesFunctPage_Evelin {
             return styleText;
     }
 
+    @FindBy (xpath = "//*[@class='btn btn-sm o_arrow_button btn-default']")
+    private List<WebElement> tabsData_Type;
+
+    public void getTabsData_Type() {
+
+                try {
+                    List<WebElement> tabs = Driver.get().findElements(By.xpath("//*[@class='btn btn-sm o_arrow_button btn-default']"));
+                    for (WebElement tab : tabs) {
+                        for(int i = 0; i < 5; i++){
+                            i++;
+                       tab.click() ;
+                       BrowserUtils.waitForPageToLoad(5);
+
+                        }
+                     }
+                }catch (StaleElementReferenceException ex){
+                    System.out.println("Stale element detected"+ ex.toString());
+            }
+    }
+    @FindBy (css = "[accesskey='s']")
+    private WebElement saveBtn;
+
+    public WebElement getSaveBtn() {
+        WebElement element = Driver.get().findElement(By.cssSelector("[accesskey='s']"));
+        return element;
+    }
+
+    @FindBy (xpath = "(//li[@class='active'])[2]")
+    private WebElement savedTitleNote;
+
+    public WebElement getSavedTitleNote() {
+        WebElement element = Driver.get().findElement(By.xpath("(//li[@class='active'])[2]"));
+       // BrowserUtils.waitForVisibility(element,5);
+        return element;
+    }
 }
 

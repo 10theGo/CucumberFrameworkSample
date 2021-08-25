@@ -6,49 +6,33 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.WeakHashMap;
 
-public class NotesFunctPage_Evelin {
+public class NotesFunctPage_Evelin extends BasePage {
 
     @FindBy (xpath = "//li[text()='Notes']")
     private WebElement notesPageSubtitle;
-
-    //IT IS NOT WORKING THROUGH FINDBY TAG SO I CREATE A METHOD LOCATING IT WITH DRIVER DIRECTLY
-//    @FindBy (xpath = "//button[contains(text(),'Create')]")
-//    private WebElement createBtn;
-
-
 
     public WebElement getNotesPageSubtitle() {
         return notesPageSubtitle;
     }
 
     public WebElement dynamicSubtitleWebElement(String subtitleName){
-        WebElement element = Driver.get().findElement(By.xpath("//li[text()='" + subtitleName + "']"));
-        return element;
+        return notesPageSubtitle;
     }
+
+    @FindBy (xpath = "//button[contains(text(),'Create')]" )
+    private WebElement createBtn;
 
     public WebElement getCreateBtn() {
-        WebElement element = Driver.get().findElement(By.xpath("//button[contains(text(),'Create')]"));
-        return element;
+        return createBtn;
     }
-
-    //*********************MUSTAFA
-//    @FindBy(xpath = "//button[contains(text(),'Create')]")
-//    private WebElement createNote;
-//
-//    public void createNewNote() {
-//        new WebDriverWait(Driver.get(), 4).until(ExpectedConditions.titleIs("Notes - Odoo"));
-//        createNote.click();
-//    }
 
     //***************************************
     //LOCATORS BELONG TO CREATE TAG TAB
+
     @FindBy (xpath = "//li[contains(text(),'New')]")
     private WebElement NewSubtitle;
 
@@ -60,59 +44,53 @@ public class NotesFunctPage_Evelin {
     private WebElement tagsBox;
 
     public WebElement getTagsBox() {
-        return Driver.get().findElement(By.cssSelector(".o_input.ui-autocomplete-input"));
+        return  tagsBox;
     }
 
     @FindBy (xpath = "//a[text()='color']")
     private WebElement colorOption;
 
     public WebElement getColorOption() {
-        return  Driver.get().findElement(By.xpath("//a[text()='color']"));
+        return colorOption;
     }
+
     @FindBy (xpath = "//span[@title='color']")
     private WebElement colorTagsBox;
 
     public WebElement getColorTagsBox() {
-        return Driver.get().findElement(By.xpath("//span[@class='o_badge_text']"));
-    }//span[@title='color']
-
-    //DOES NOT WORK WHEN I USE THEM IN STEP DEFS
-//    @FindBy (xpath = "//div[@aria-expanded='true']\"")
-//    private WebElement coloursAvailables;
-//
-//    public WebElement getColoursAvailables() {
-//        return coloursAvailables;
-//    }
+        return colorTagsBox;
+    }
 
     public WebElement coloursSelected() {
         WebElement element = Driver.get().findElement(By.xpath("//div[@aria-expanded='true']"));
         return element;
     }
 
-    @FindBy (xpath = ".note-editable.panel-body")
+    //***************************************
+    //LOCATORS FOR TEXT EDITION
+
+    @FindBy (css = ".note-editable.panel-body")
     private WebElement panelEditor;
 
     public WebElement getPanelEditor() {
-        WebElement element = Driver.get().findElement(By.cssSelector(".note-editable.panel-body"));
-        return element;
+        return panelEditor;
     }
 
     public void editedText() {
        getPanelEditor().sendKeys("This is a text for checking editor text box");
     }
-    @FindBy (xpath = "//pre[@style]")
+
+    @FindBy (xpath = "//p[text()='This is a text for checking editor text box']")
     private WebElement textEdited;
 
     public WebElement getTextEdited() {
-        WebElement element = Driver.get().findElement(By.xpath("//p[text()='This is a text for checking editor text box']"));
-        return element;
+        return textEdited;
     }
     @FindBy (xpath = "(//*[@class='btn btn-default btn-sm dropdown-toggle'])[1]")
-    private WebElement StyleBtb;
+    private WebElement styleBtb;
 
     public WebElement getStyleBtb() {
-        WebElement element = Driver.get().findElement(By.xpath("(//*[@class='btn btn-default btn-sm dropdown-toggle'])[1]"));
-        return element;
+        return styleBtb;
     }
     @FindBy (css = "[data-event='formatBlock']")
     private List<WebElement> typingStyle;
@@ -127,8 +105,11 @@ public class NotesFunctPage_Evelin {
         }
     }
 
+    @FindBy (css = "[data-event='formatBlock']")
+    private List<WebElement> eachStyle;
+
         public List<String> getTypingStyleText() {
-            List<WebElement> styleTextElements = Driver.get().findElements(By.cssSelector("[data-event='formatBlock']"));
+            List<WebElement> styleTextElements = eachStyle;
 
             List<String> styleText = new ArrayList<>();
             for (WebElement elementText : styleTextElements) {
@@ -136,6 +117,8 @@ public class NotesFunctPage_Evelin {
                }
             return styleText;
     }
+    //***************************************
+    //LOCATORS FOR SELECT DIFFERENT TABS OF THE PAGE
 
     @FindBy (xpath = "//*[@class='btn btn-sm o_arrow_button btn-default']")
     private List<WebElement> tabsData_Type;
@@ -143,13 +126,12 @@ public class NotesFunctPage_Evelin {
     public void getTabsData_Type() {
 
                 try {
-                    List<WebElement> tabs = Driver.get().findElements(By.xpath("//*[@class='btn btn-sm o_arrow_button btn-default']"));
+                    List<WebElement> tabs = tabsData_Type;
                     for (WebElement tab : tabs) {
                         for(int i = 0; i < 5; i++){
                             i++;
                        tab.click() ;
                        BrowserUtils.waitForPageToLoad(5);
-
                         }
                      }
                 }catch (StaleElementReferenceException ex){
@@ -160,17 +142,14 @@ public class NotesFunctPage_Evelin {
     private WebElement saveBtn;
 
     public WebElement getSaveBtn() {
-        WebElement element = Driver.get().findElement(By.cssSelector("[accesskey='s']"));
-        return element;
+        return saveBtn;
     }
 
     @FindBy (xpath = "(//li[@class='active'])[2]")
     private WebElement savedTitleNote;
 
     public WebElement getSavedTitleNote() {
-        WebElement element = Driver.get().findElement(By.xpath("(//li[@class='active'])[2]"));
-       // BrowserUtils.waitForVisibility(element,5);
-        return element;
+        return savedTitleNote;
     }
 }
 

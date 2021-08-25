@@ -3,7 +3,6 @@ package com.FinWorks.step_definitions;
 import com.FinWorks.pages.LoginPageEvelin;
 import com.FinWorks.pages.NotesFunctPage_Evelin;
 import com.FinWorks.utilities.BrowserUtils;
-import com.FinWorks.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -71,10 +70,6 @@ public class NotesFunctStepDefs_Evelin {
     public void user_evelinCanSelectAColorAvailable() {
         WebElement element = notesPageMethod.coloursSelected();
         Assert.assertTrue(element.isDisplayed() );
-
-        //HERE IS THE PROOF: GETTING FROM @FINDBY DOES NOT WORK
-//        WebElement coloursAvailables = new NotesFunctPage_Evelin().getColoursAvailables();
-//        Assert.assertTrue(coloursAvailables.isDisplayed());
     }
 
     @And("user_Evelin clicks on panel editor module")

@@ -1,5 +1,6 @@
 package com.FinWorks.pages;
 
+import com.FinWorks.utilities.BrowserUtils;
 import com.FinWorks.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
 import java.util.WeakHashMap;
 
 public class NotesFunctPage_Evelin {
@@ -35,13 +37,13 @@ public class NotesFunctPage_Evelin {
     }
 
     //*********************MUSTAFA
-    @FindBy(xpath = "//button[contains(text(),'Create')]")
-    private WebElement createNote;
-
-    public void createNewNote() {
-        new WebDriverWait(Driver.get(), 4).until(ExpectedConditions.titleIs("Notes - Odoo"));
-        createNote.click();
-    }
+//    @FindBy(xpath = "//button[contains(text(),'Create')]")
+//    private WebElement createNote;
+//
+//    public void createNewNote() {
+//        new WebDriverWait(Driver.get(), 4).until(ExpectedConditions.titleIs("Notes - Odoo"));
+//        createNote.click();
+//    }
 
     //***************************************
     //LOCATORS BELONG TO CREATE TAG TAB
@@ -50,6 +52,39 @@ public class NotesFunctPage_Evelin {
 
     public WebElement getNewSubtitle() {
         return NewSubtitle;
+    }
+
+    @FindBy (css = ".o_input.ui-autocomplete-input")
+    private WebElement tagsBox;
+
+    public WebElement getTagsBox() {
+        return Driver.get().findElement(By.cssSelector(".o_input.ui-autocomplete-input"));
+    }
+
+    @FindBy (xpath = "//a[text()='color']")
+    private WebElement colorOption;
+
+    public WebElement getColorOption() {
+        return  Driver.get().findElement(By.xpath("//a[text()='color']"));
+    }
+    @FindBy (xpath = "//span[@title='color']")
+    private WebElement colorTagsBox;
+
+    public WebElement getColorTagsBox() {
+        return Driver.get().findElement(By.xpath("//span[@class='o_badge_text']"));
+    }//span[@title='color']
+
+    //DOES NOT WORK WHEN I USE THEM IN STEP DEFS
+//    @FindBy (xpath = "//div[@aria-expanded='true']\"")
+//    private WebElement coloursAvailables;
+//
+//    public WebElement getColoursAvailables() {
+//        return coloursAvailables;
+//    }
+
+    public WebElement coloursSelected() {
+        WebElement element = Driver.get().findElement(By.xpath("//div[@aria-expanded='true']"));
+        return element;
     }
 }
 

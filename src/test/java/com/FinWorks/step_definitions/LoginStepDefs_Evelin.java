@@ -26,8 +26,7 @@ public class LoginStepDefs_Evelin {
     @Then("user enters to {string} page")
     public void userEntersToPage(String expectedTitle) {
         BrowserUtils.waitFor(5);
-        System.out.println(Driver.get().getTitle());
-        String actualTitle = Driver.get().getTitle();
+        String actualTitle = new LoginPageEvelin().dynamicSubtitleWebElement(expectedTitle).getText();
         Assert.assertEquals(expectedTitle,actualTitle);
     }
 

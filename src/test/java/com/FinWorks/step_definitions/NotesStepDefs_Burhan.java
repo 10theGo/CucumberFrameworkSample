@@ -2,7 +2,7 @@ package com.FinWorks.step_definitions;
 
 import com.FinWorks.pages.NavBarPage_Burhan;
 import com.FinWorks.pages.NotesPage_Burhan;
-import com.FinWorks.utilities.BrowserUtils;
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,6 +13,8 @@ import java.util.List;
 public class NotesStepDefs_Burhan {
 
     NotesPage_Burhan notesPage = new NotesPage_Burhan();
+    private final String tagName = new Faker().color().name();
+    private final String someNotes = new Faker().shakespeare().romeoAndJulietQuote();
 
     @Given("The user navigates to {string} tab_brhn")
     public void the_user_navigates_to_tab_brhn(String tabName) {
@@ -29,10 +31,14 @@ public class NotesStepDefs_Burhan {
         Assert.assertTrue("verify that note editing box appeared", notesPage.isNoteBoxDisplayed());
     }
 
-    @When("The user selects {string} tag_brhn")
-    public void the_user_selects_tag_brhn(String tagName) {
+    @When("The user clicks on Tags Dropdown_brhn")
+    public void the_user_clicks_on_Tags_Dropdown_brhn() {
         notesPage.clickOnTagsDD();
         notesPage.waitUntilLoaderScreenDisappear();
+    }
+
+    @When("The user selects {string} tag_brhn")
+    public void the_user_selects_tag_brhn(String tagName) {
         notesPage.clickOnTag(tagName);
         notesPage.waitUntilLoaderScreenDisappear();
     }
@@ -44,5 +50,30 @@ public class NotesStepDefs_Burhan {
         Assert.assertTrue("verify that expected tag name is in the tags list", isTagDisplayed);
     }
 
+    @When("The user writes a tag name and saves_brhn")
+    public void the_user_writes_a_tag_name_and_saves_brhn() {
+        System.out.println("tagName = " + tagName);
+        notesPage.writeTagNameForCreateTag(tagName);
+        notesPage.clickOnCreateTag_Save();
+        notesPage.waitUntilLoaderScreenDisappear();
+    }
+
+    @Then("Tag name should be selected_brhn")
+    public void tag_name_should_be_selected_brhn() {
+        tag_should_be_selected_brhn(tagName);
+    }
+
+    @When("The user types some notes on Note Panel Body_brhn")
+    public void the_user_types_some_notes_on_Note_Panel_Body_brhn() {
+        notesPage.writeSomeNotesOnPanel(someNotes);
+        System.out.println("someNotes = " + someNotes);
+    }
+
+    @Then("Typed notes should be on the panel body_brhn")
+    public void typed_notes_should_be_on_the_panel_body_brhn() {
+        String actualText = notesPage.getNoteText();
+        String expectedText = someNotes;
+        Assert.assertEquals(expectedText, actualText);
+    }
 
 }

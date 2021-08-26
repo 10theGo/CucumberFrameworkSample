@@ -22,6 +22,15 @@ public class NotesPage_Burhan extends BasePage {
     @FindBy(xpath = "//span[contains(@class,'badge dropdown')]")
     private List<WebElement> tagsList;
 
+    @FindBy(name = "name")
+    private WebElement createTagNameBox;
+
+    @FindBy(xpath = "//span[.='Save']/..")
+    private WebElement createTagSaveButton;
+
+    @FindBy(css = ".note-editable.panel-body")
+    private WebElement noteEditablePanelBody;
+
     public void clickOnCreateNoteButton() {
         createNoteButton.click();
         BrowserUtils.waitForVisibility(noteEditingBox, 3);
@@ -47,5 +56,21 @@ public class NotesPage_Burhan extends BasePage {
             tagNamesList.add(eachTag.getText());
         }
         return tagNamesList;
+    }
+
+    public void writeTagNameForCreateTag(String tagName) {
+        createTagNameBox.sendKeys(tagName);
+    }
+
+    public void clickOnCreateTag_Save() {
+        createTagSaveButton.click();
+    }
+
+    public void writeSomeNotesOnPanel(String someNotes) {
+        noteEditablePanelBody.sendKeys(someNotes);
+    }
+
+    public String getNoteText() {
+        return noteEditablePanelBody.getText();
     }
 }

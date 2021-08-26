@@ -11,8 +11,8 @@ Feature: Note Functionality
     Then Note Editing Box should be appear_brhn
 
   Scenario: Select Tag on Editing Box
-    When The user selects 3. tag_brhn
-    Then 3. tag should be selected_brhn
+    When The user selects "color" tag_brhn
+    Then "color" tag should be selected_brhn
 
   Scenario: Create Tag on Editting Box
     When The user clicks on Tags Dropdown / Create&Edit field_brhn

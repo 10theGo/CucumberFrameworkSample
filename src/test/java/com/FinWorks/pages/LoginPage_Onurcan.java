@@ -58,9 +58,9 @@ public class LoginPage_Onurcan extends BasePage {
 
 
 
-    public void login(String userNameStr, String passwordStr) {
+    public void login(String userNameStr, String passwordSStr) {
         loginBox.sendKeys(userNameStr);
-        passwordBox.sendKeys(passwordStr);
+        passwordBox.sendKeys(passwordSStr);
         submit.click();
     }
 

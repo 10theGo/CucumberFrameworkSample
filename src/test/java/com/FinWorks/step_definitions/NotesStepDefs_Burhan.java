@@ -76,4 +76,27 @@ public class NotesStepDefs_Burhan {
         Assert.assertEquals(expectedText, actualText);
     }
 
+    @When("The User selects {string} as date type_brhn")
+    public void the_User_selects_as_date_type_brhn(String dateType) {
+        notesPage.selectDateType(dateType);
+        notesPage.waitUntilLoaderScreenDisappear();
+    }
+
+    @Then("{string} should be selected_brhn")
+    public void should_be_selected_brhn(String dateType) {
+        boolean isDisabled = notesPage.isDateTypeDisabled(dateType);
+        Assert.assertTrue(isDisabled);
+    }
+
+    @When("The user saves the note_brhn")
+    public void the_user_saves_the_note_brhn() {
+        notesPage.clickOnSaveNote();
+        notesPage.waitUntilScheduleActivityAppears();
+    }
+
+    @Then("The note should be saved_brhn")
+    public void the_note_should_be_saved_brhn() {
+        Assert.assertTrue(notesPage.isNotePageDisplayed());
+    }
+
 }

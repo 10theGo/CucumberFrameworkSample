@@ -29,16 +29,17 @@ Feature: Note Functionality
     When The User selects "<date/type of note>" as date type_brhn
     Then "<date/type of note>" should be selected_brhn
     Examples:
-      | <date/type of note> |
-      | New                 |
-      | Today               |
-      | This Week           |
-      | Later               |
-      | Notes               |
+      | date/type of note |
+      | New               |
+      | Today             |
+      | This Week         |
+      | Later             |
+      | Notes             |
 
   Scenario: Saving the note
-    When The user selects "color" tag_brhn
+    Given The user clicks on Tags Dropdown_brhn
+    And The user selects "color" tag_brhn
     And The user types some notes on Note Panel Body_brhn
     And The User selects "This Week" as date type_brhn
-    And The user saves the note_brhn
+    When The user saves the note_brhn
     Then The note should be saved_brhn

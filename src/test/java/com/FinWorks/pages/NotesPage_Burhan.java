@@ -41,6 +41,7 @@ public class NotesPage_Burhan extends BasePage {
     @FindBy(xpath = "//button[@title='Log or schedule an activity']")
     private WebElement scheduleActivity;
 
+
     public void clickOnCreateNoteButton() {
         createNoteButton.click();
         BrowserUtils.waitForVisibility(noteEditingBox, 3);
@@ -84,6 +85,7 @@ public class NotesPage_Burhan extends BasePage {
         return noteEditablePanelBody.getText();
     }
 
+
     public void selectDateType(String dateType) {
         WebElement dateTypeButton = Driver.get().findElement(By.xpath("//button[contains(text(),'" + dateType + "')][contains(@class,'o_arrow_button')]"));
         dateTypeButton.click();
@@ -111,4 +113,5 @@ public class NotesPage_Burhan extends BasePage {
             e.printStackTrace();
         }
     }
+
 }

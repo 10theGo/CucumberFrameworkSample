@@ -43,10 +43,4 @@ Feature: Note Functionality
     And The user types some notes on Note Panel Body_brhn
     And The User selects "This Week" as date type_brhn
     When The user saves the note_brhn
-
-    When The user selects "color" tag_brhn
-    And The user types some notes on Note Panel Body_brhn
-    And The User selects "This Week" as date type_brhn
-    And The user saves the note_brhn
-
     Then The note should be saved_brhn

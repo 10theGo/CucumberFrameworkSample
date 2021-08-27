@@ -2,7 +2,7 @@
 Feature: Login
 
   Background:
-    Given the user is on the login page
+    Given the usertype is on the login page
 
   Scenario Outline: Entering valid credentials for different user types
 

@@ -13,8 +13,8 @@ public class Login_StepDefs_AY {
 
     LoginPage_AY loginPage_ay = new LoginPage_AY();
 
-    @Given("the user is on the login page")
-    public void theUserIsOnTheLoginPage() {
+    @Given("the usertype is on the login page")
+    public void the_User_Is_On_TheLoginPage() {
 
         Driver.get().get(ConfigurationReader.get("url"));
 

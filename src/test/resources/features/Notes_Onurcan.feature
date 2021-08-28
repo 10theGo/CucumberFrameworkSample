@@ -19,18 +19,20 @@ Feature: Notes Functionality
   Scenario: the user type any note.
     Then the user_onurcan type any note.
 
-    Scenario Outline: user can select the date/type of note (New - Today -This Week - Later)
-      Then the user_onurcan select "<certainDate>"
+  Scenario Outline: user can select the date/type of note <schedule>
+    When the user_onurcan clicks "<schedule>"
+    Then the "<schedule>" should be selected
 
-      Examples:
-      |certainDate|
-      |New        |
-      |Today      |
-      |This Week  |
-      |Later      |
+    Examples:
+      | schedule  |
+      | New       |
+      | Today     |
+      | This Week |
+      | Later     |
 
-      Scenario: the user can Save
-        Then the user_onurcan can save
+  Scenario: the user can Save
+    When the user_onurcan type any note.
+    Then the user_onurcan can save
 
 
 

@@ -80,23 +80,30 @@ public class NotesStepDefs_Onurcan {
 
     }
 
-    @Then("the user_onurcan select {string}")
-    public void theUser_onurcanSelect(String date) throws Throwable {
-        System.out.println("notesPage_onurcan.isClickDateDisabled(date) = " + notesPage_onurcan.isClickDateDisabled(date));
+    @When("the user_onurcan clicks {string}")
+    public void theUser_onurcanClicks(String date) {
+        notesPage_onurcan.selectSchedule(date);
+        notesPage_onurcan.waitUntilLoaderScreenDisappear();
 
-        Assert.assertTrue("Verify click date is disabled", notesPage_onurcan.isClickDateDisabled(date));
+    }
+
+    @Then("the {string} should be selected")
+    public void theUser_onurcanSelect(String dateType) {
+        notesPage_onurcan.waitUntilLoaderScreenDisappear();
+        boolean isDisabled = notesPage_onurcan.isDateTypeDisabled(dateType);
+        Assert.assertTrue(isDisabled);
     }
 
     @Then("the user_onurcan can save")
     public void theUser_onurcanCanSave() {
-        notesPage_onurcan.typeNote(fakeMessage);
         notesPage_onurcan.clickSaveButton();
-        //BrowserUtils.waitForPageToLoad(8);
-        BrowserUtils.waitFor(4);
-        // BrowserUtils.waitForVisibility(notesPage_onurcan.getSavedText(),8);
+        notesPage_onurcan.waitUntilLoaderScreenDisappear();
         String savedText = notesPage_onurcan.getSavedText().getAttribute("textContent");
         System.out.println("savedText = " + savedText);
 
     }
+
+
+
 }
 

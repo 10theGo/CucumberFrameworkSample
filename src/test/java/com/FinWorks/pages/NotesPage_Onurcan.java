@@ -1,7 +1,9 @@
 package com.FinWorks.pages;
 
 import com.FinWorks.utilities.BrowserUtils;
+import com.FinWorks.utilities.Driver;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
@@ -73,11 +75,20 @@ public class NotesPage_Onurcan extends BasePage {
 
     @FindBy(xpath = "//li[@class='o_m2o_dropdown_option ui-menu-item']")
     private WebElement createTagInsideDD;
+
     @FindBy(xpath= "(//li[@class='active'])[2]")
     private WebElement savedText;
 
-    private Object NoSuchElementException;
+    @FindBy(xpath = "//button[@title='Log or schedule an activity']")
+    private WebElement scheduledActivitity;
 
+    public WebElement getScheduledActivitity() {
+        return scheduledActivitity;
+    }
+
+    public void setScheduledActivitity(WebElement scheduledActivitity) {
+        this.scheduledActivitity = scheduledActivitity;
+    }
 
 
     public void clickCreateTagIsideDD(){
@@ -270,36 +281,15 @@ public class NotesPage_Onurcan extends BasePage {
 
     }
 
-    public boolean isClickDateDisabled(String date) throws Throwable {
-        boolean isDateSelected;
-        BrowserUtils.waitForPageToLoad(5);
-        switch (date) {
-            case "New":
-                newButtonStatusBar.click();
-                BrowserUtils.waitFor(3);
-                isDateSelected = newButtonStatusBar.getAttribute("class").contains("disabled");
-                System.out.println("newButtonStatusBar = " + newButtonStatusBar.getAttribute("class"));
-                break;
-            case "Today":
-                todayButtonStatusBar.click();
-                BrowserUtils.waitForVisibility(todayButtonStatusBar,5);
-                isDateSelected = todayButtonStatusBar.getAttribute("class").contains("disabled");
-                break;
-            case "This Week":
-                thisWeekButtonStatusBar.click();
-                BrowserUtils.waitForVisibility(thisWeekButtonStatusBar,5);
-                isDateSelected = thisWeekButtonStatusBar.getAttribute("class").contains("disabled");
-                break;
-            case "Later":
-                laterButtonStatusBar.click();
-                BrowserUtils.waitForVisibility(laterButtonStatusBar,5);
-                isDateSelected = laterButtonStatusBar.getAttribute("class").contains("disabled");
-                break;
+    public void selectSchedule(String date) {
+        WebElement dateTypeButton = Driver.get().findElement(By.xpath("//button[contains(text(),'" + date + "')][contains(@class,'o_arrow_button')]"));
+        dateTypeButton.click();
+    }
 
-            default:
-                throw (Throwable) NoSuchElementException;
-
-        }
-        return isDateSelected;
+    public boolean isDateTypeDisabled(String date) {
+        WebElement dateTypeButton = Driver.get().findElement(By.xpath("//button[contains(text(),'" + date + "')][contains(@class,'o_arrow_button')]"));
+        String disabledValue = dateTypeButton.getAttribute("disabled");
+        System.out.println("disabledValue = " + disabledValue);
+        return disabledValue.equals("true");
     }
 }

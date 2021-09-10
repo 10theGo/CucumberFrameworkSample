@@ -8,6 +8,6 @@ Feature: Fleet Module
   @brhn
   Scenario: PosManager should successfully land on Vehicles page
     When The user navigates to "Fleet" tab_brhn
-    Then The user is on the Vehicles Page_brhn
+    Then The user should be on the Vehicles Page_brhn
 
   Scenario: PosManager should be able to navigate between Vehicle modules

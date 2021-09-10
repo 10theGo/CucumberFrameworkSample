@@ -2,9 +2,7 @@ package com.FinWorks.pages;
 
 import com.FinWorks.utilities.BrowserUtils;
 import com.FinWorks.utilities.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,7 +15,7 @@ public abstract class BasePage {
 
 
 
-    @FindBy(xpath = "/html/body/div[1]/div[2]/div[1]/ol/li']")
+    @FindBy(xpath = "//ol[@class = 'breadcrumb']/li")
     public WebElement pageSubTitle;
 
     @FindBy(css = "[class= o_loading]")
